@@ -1,0 +1,48 @@
+ Chapter 87: Vehicles Other Than Railway
+Category: Cars, Trucks, Motorcycles, Tractors, etc.
+
+Sample Validation Questions
+What is the duty rate for new diesel road tractors with GVW > 36,287 kg under subheading 8701.21.00?
+
+How are electric passenger vehicles with EPA-rated range over 250 miles classified under HTS?
+
+What is the subheading for fire fighting vehicles in the HTS?
+
+According to Chapter 87 notes, are railway vehicles included in this chapter?
+
+What classification would a hybrid passenger vehicle capable of plug-in charging fall under?
+
+📙 Chapter 88: Aircraft, Spacecraft
+Category: Helicopters, Airplanes, UAVs, Parts, Satellites
+
+Sample Validation Questions
+How are unmanned aircraft weighing over 25 kg but not more than 150 kg classified?
+
+What duty rate applies to communications satellites under heading 8802.60?
+
+What is excluded from the definition of “unmanned aircraft” per Chapter 88 Note 1?
+
+Under which heading is “air combat simulator” equipment classified?
+
+What are the general and special duty rates for parachutes under heading 8804.00.00?
+
+📗 Chapter 89: Ships, Boats, Floating Structures
+Category: Yachts, Vessels, Floating Platforms, Warships
+
+Sample Validation Questions
+How are inflatable boats valued over $500 with rigid hulls classified under HTS?
+
+What is the classification for a fishing vessel used for processing fish?
+
+Under which heading would a warship be classified?
+
+What are the general and special duty rates for floating docks under heading 8905.90.10?
+
+What does Note 1 under Chapter 89 say about classifying hulls?
+
+🛠️ Advanced Scenario-Based Examples
+Scenario: “A diesel-powered truck with GVW 10 metric tons” → Ask: “What is its classification and duty rate?”
+
+Scenario: “A spacecraft launch vehicle for commercial communication” → Ask: “What is the appropriate HTS subheading?”
+
+Scenario: “A yacht over 24 meters with an auxiliary motor” → Ask: “Under what HTS subheading does this fall?”

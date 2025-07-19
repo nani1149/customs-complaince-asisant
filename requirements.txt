@@ -1,0 +1,7 @@
+langchain>=0.1.0
+openai>=1.0.0
+tiktoken
+faiss-cpu
+python-dotenv
+PyPDF2
+langchain-azure-ai
