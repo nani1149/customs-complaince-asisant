@@ -17,6 +17,16 @@ os.environ["AZURE_OPENAI_ENDPOINT"] = "https://<azure subscription id>.openai.az
 # Load environment variables
 load_dotenv()
 
+import chainlit as cl
+
+LANGUAGE_MAP = {
+    "English": "en",
+    "Spanish": "es",
+    "French": "fr",
+    "German": "de"
+}
+
+
 # Initialize Azure OpenAI chat model
 llm = AzureChatOpenAI(
     deployment_name=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME"),
@@ -75,19 +85,45 @@ qa_chain = ConversationalRetrievalChain.from_llm(
 # On chat start
 @cl.on_chat_start
 async def start():
+    actions = [
+        cl.Action(name=lang_code, value=lang_code, label=lang_name)
+        for lang_name, lang_code in LANGUAGE_MAP.items()
+    ]
+
+    await cl.Message(content="🌍 Please select your preferred language:").send()
+
+    msg = cl.AskActionMessage(
+        content="Choose your language from the dropdown below 👇",
+        actions=actions,
+    )
+    res = await msg.send()
+
+    # Save language in session
+    cl.user_session.set("user_lang", res)
     await cl.Message(
-        content="👋 Welcome to the **ETS Assistant**!\n\n📚 Ask me anything related to your uploaded documents."
+        content=f"✅ Language set to **{[k for k, v in LANGUAGE_MAP.items() if v == res][0]}**.\n\nYou can now ask your questions!"
     ).send()
 
-# On user message
 @cl.on_message
 async def main(message: cl.Message):
-    res = qa_chain(message.content)
+    user_lang = cl.user_session.get("user_lang", "en")
 
-    answer = res["answer"]  # instead of res["result"]
+    # Translate to English if not already
+    if user_lang != "en":
+        translated_question = azure_translate(message.content, to_lang="en", from_lang=user_lang)
+    else:
+        translated_question = message.content
+
+    # Run the QA chain
+    res = qa_chain(translated_question)
+    answer = res["answer"]
     sources = res.get("source_documents", [])
 
-    # Format source display with page and content
+    # Translate answer back to user's language
+    if user_lang != "en":
+        answer = azure_translate(answer, to_lang=user_lang, from_lang="en")
+
+    # Format sources
     source_texts = "\n\n".join(
         [
             f"📄 **Page {doc.metadata.get('page', '?')} of {doc.metadata.get('source', '?')}**\n"
@@ -97,14 +133,12 @@ async def main(message: cl.Message):
     )
 
     final_response = f"""
-🎯 **Answer:**
-
+🎯 **Answer:**  
 {answer}
 
 ---
 
-📚 **Sources:**
+📚 **Sources:**  
 
-{source_texts}
 """
     await cl.Message(content=final_response).send()
