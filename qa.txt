@@ -46,3 +46,18 @@ Scenario: “A diesel-powered truck with GVW 10 metric tons” → Ask: “What 
 Scenario: “A spacecraft launch vehicle for commercial communication” → Ask: “What is the appropriate HTS subheading?”
 
 Scenario: “A yacht over 24 meters with an auxiliary motor” → Ask: “Under what HTS subheading does this fall?”
+
+
+¿Cuál es la tasa arancelaria para vehículos eléctricos con una autonomía superior a 250 millas?
+
+¿Cómo se clasifican los tractores de carretera diésel con un peso bruto vehicular (GVW) superior a 36,287 kg?
+
+✈️ Capítulo 88 – Aeronaves y naves espaciales
+¿Qué fracción arancelaria corresponde a aeronaves no tripuladas con un peso máximo de despegue entre 7 kg y 25 kg?
+
+¿Qué se excluye de la definición de "aeronave no tripulada" según el capítulo 88?
+
+🚢 Capítulo 89 – Barcos, embarcaciones y estructuras flotantes
+¿Bajo qué subpartida se clasifican los barcos pesqueros que procesan productos del mar?
+
+¿Cuál es la tasa de arancel para botes inflables valorados en más de $500?
